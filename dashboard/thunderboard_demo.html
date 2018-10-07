@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+	<title>Thunderboard Sense 2</title>
+	<link rel="stylesheet" href="css/thunderboard_demo.css">
+	<link rel="icon" href="img/favicon.ico">
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+	<script type="text/javascript" src="js/smoothie.js"></script>
+	<script type="text/javascript" src="js/thunderboard_demo.js"></script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">AF5NPJJPRX4V-438175561-30016</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">28fff4e1-637a-4bc9-95b0-d511235ffb66</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://arrowelectronics.sharepoint.com/sites/ArrowEngineering/_layouts/15/DocIdRedir.aspx?ID=AF5NPJJPRX4V-438175561-30016, AF5NPJJPRX4V-438175561-30016</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+
+
+<div class='main-container'>
+
+	<div class='logo-title-area'>
+		<img src="img/silicon-labs-logo.png" alt="Silicon Labs">
+		<span class="demo-title-text">Thunderboard Sense 2</span>
+		<img src="img/arrow_logo.jpg" alt="Arrow">
+	</div>
+
+	<div class="data-box-grid">
+
+			<div class='data-box'>
+				<span class='data-title'>Temperature</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="temperature_canvas"></canvas>
+					<div class='data-point-container'>
+						<div class='data-point-box'>
+							<h1><span id="temperature_text_span"></span></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class='data-box'>
+				<span class='data-title'>Humidity</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="humidity_canvas"></canvas>
+					<div class='data-point-container'>
+						<div class='data-point-box'>
+							<h1><span id="humidity_text_span"></span></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='data-box'>
+				<span class='data-title'>Pressure</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="pressure_canvas"></canvas>
+					<div class='data-point-container'>
+						<div class='data-point-box'>
+							<h1><span id="pressure_text_span"></span></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class='data-box'>
+				<span class='data-title'>C0<sub><small>2</small></sub></span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="c02_canvas"></canvas>
+					<div class='data-point-container'>
+						<div class='data-point-box'>
+							<h1><span id="c02_text_span"></span></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='data-box'>
+				<span class='data-title'>VOC</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="voc_canvas"></canvas>
+					<div class='data-point-container'>
+						<div class='data-point-box'>
+							<h1><span id="voc_text_span"></span></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='data-box'>
+				<span class='data-title'>Light</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="light_canvas"></canvas>
+					<div class='data-point-container'>
+						<div class='data-point-box'>
+							<h1><span id="light_text_span"></span></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+
+			<div class='data-box'>
+				<span class='data-title'>UV Index</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="uvLevel_canvas"></canvas>
+					<div class='data-point-container'>
+						<div class='data-point-box'>
+							<h1><span id="uvLevel_text_span"></span></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='data-box'>
+				<span class='data-title'>Mic Level</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="micLevel_canvas"></canvas>
+					<div class='data-point-container'>
+						<div class='data-point-box'>
+							<h1><span id="micLevel_text_span"></span></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='data-box'>
+				<span class='data-title'>Accelerometer</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="accelerometer_canvas"></canvas>
+					<table class='data-table'>
+						<tr>
+							<td>X:</td> <td id="accel_x_td">0</td>
+						</tr>
+						<tr>
+							<td>Y:</td> <td id="accel_y_td">0</td>
+						</tr>
+						<tr>
+							<td>Z:</td> <td id="accel_z_td">0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class='data-box'>
+				<span class='data-title'>Orientation</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="orientation_canvas"></canvas>
+					<table class='data-table'>
+						<tr>
+							<td>X:</td> <td id="orient_x_td">0</td>
+						</tr>
+						<tr>
+							<td>Y:</td> <td id="orient_y_td">0</td>
+						</tr>
+						<tr>
+							<td>Z:</td> <td id="orient_z_td">0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class='data-box'>
+				<span class='data-title'>LED</span>
+				<div class='data-content'>
+					<canvas class='chart-canvas' id="led_canvas"></canvas>
+					<table class='data-table'>
+						<tr>
+							<td>Red:</td> <td id="led_red_td">0</td>
+						</tr>
+						<tr>
+							<td>Green:</td> <td id="led_green_td">0</td>
+						</tr>
+						<tr>
+							<td>Blue:</td> <td id="led_blue_td">0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class='data-box'>
+				<div class="data-box-img-container"><img src="img/thunderboard_sense_2.png" height="221" width="220"></div>
+			</div>
+
+	</div>
+
+
+
+</div>
+
+</body>
+</html>
+
